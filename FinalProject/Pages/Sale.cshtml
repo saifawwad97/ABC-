@@ -1,0 +1,91 @@
+﻿@page
+@model FinalProject.Pages.SaleModel
+@{
+}
+
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8" />
+
+
+
+
+
+<body>
+
+
+    <strong>@Model.errorMessage</strong>
+
+
+    <form name="aa" method="POST">
+        <div class=" row mb-3">
+            <lablel class="col-sm-3 col-form-label">ItemCode</lablel>
+            <div class="col-sm-6">
+                <input asp-for="ItemCode" type="text" class="form-control" id="ItemCode" name="ItemCode" value="@Model.ItemCode" />
+                <span asp-validation-for="ItemCode"></span>
+
+            </div>
+        </div>
+
+
+       
+
+        <div class="row mb-3">
+            <div class="offeset-sm-3 d-grid">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+
+            <div class="col-sm-3 d-grid">
+                <a class="btn btn-outline-primary" href="/" role="button">Cancel</a>
+            </div>
+        </div>
+
+
+
+        <h1> Item @Model.ItemCode  </h1>
+
+
+        <table border="1">
+
+            <tr>
+
+                <td>ItemCode</td>
+                <td>Description</td>
+                <td>UnitPrice</td>
+                <td>Quantity</td>
+
+
+            </tr>
+
+            @foreach (var i in Model.getitem)
+            {
+
+                <tr>
+                    <td>@i.ItemCode </td>
+                    <td>@i.Description</td>
+                    <td>@i.UnitPrice </td>
+                    <td>@i.Quantity</td>
+
+                </tr>
+            }
+
+        </table>
+
+
+    </form>
+
+        <div class="row mb-3">
+            <div class="offeset-sm-3 d-grid">
+                <button onclick="document.location='AddToCart'" type="submit" class="btn btn-primary">AddToCart</button>
+            </div>
+
+
+
+        </div>
+
+
+   
+   
+
+</body>
+</html>

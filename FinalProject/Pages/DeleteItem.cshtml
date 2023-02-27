@@ -1,0 +1,82 @@
+﻿@page
+@model FinalProject.Pages.DeleteItemModel
+@{
+}
+
+
+
+
+@section Scripts {
+
+
+
+    <script>
+        const itemCode = document.getElementById("ItemCode");
+
+
+
+
+        itemCode.addEventListener("input", (event) => {
+            if (/[a-z]{1}[0-9]{5}$/.test(itemCode) && itemCode.length == 10) {
+                return true;
+
+            } else {
+                userId.setCustomValidity("I am expecting you to insert 1 letter followed by 5 numbers");
+                userId.reportValidity();
+            }
+        });
+
+
+
+
+
+    </script>
+
+    <partial name="_ValidationScriptsPartial" />
+
+}
+
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8" />
+<title> Delete  Item </title>
+
+
+
+
+<body>
+    <h2> Delete Item </h2>
+
+
+    <strong>@Model.errorMessage</strong>
+
+
+    <form name="UpdateItem" method="POST">
+        <div class=" row mb-3">
+            <lablel class="col-sm-3 col-form-label">ItemCode</lablel>
+            <div class="col-sm-6">
+                <input asp-for="ItemCode" type="text" class="form-control" id="ItemCode" name="ItemCode" value="@Model.item.ItemCode" />
+                <span asp-validation-for="ItemCode"></span>
+
+            </div>
+        </div>
+
+   
+        <strong> @Model.successMessage</strong>
+
+
+        <div class="row mb-3">
+            <div class="offeset-sm-3 d-grid">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+
+            <div class="col-sm-3 d-grid">
+                <a class="btn btn-outline-primary" href="/" role="button">Cancel</a>
+            </div>
+        </div>
+
+
+    </form>
+
+</body>
+</html>

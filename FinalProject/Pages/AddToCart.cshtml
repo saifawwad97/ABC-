@@ -1,0 +1,93 @@
+﻿@page
+@model FinalProject.Pages.AddToCartModel
+@{
+}
+
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8" />
+<title> Add New Item </title>
+
+
+
+
+<body>
+    <h2> Insert Into Cart </h2>
+
+
+    <strong>@Model.errorMessage</strong>
+
+
+    <form name="AddItem" method="POST">
+        <div class=" row mb-3">
+            <lablel class="col-sm-3 col-form-label">ItemCode</lablel>
+            <div class="col-sm-6">
+                <input asp-for="ItemCode" type="text" class="form-control" id="ItemCode" name="ItemCode" value="@Model.ItemCode" />
+                <span asp-validation-for="ItemCode"></span>
+
+            </div>
+        </div>
+
+        <div class=" row mb-3">
+            <lablel class="col-sm-3 col-form-label">Quantity</lablel>
+            <div class="col-sm-6">
+                <input asp-for="Quantity" type="text" class="form-control" id="Quantity" name="Quantity" value="@Model.item.Quantity " />
+                <span asp-validation-for="Quantity"></span>
+            </div>
+        </div>
+
+
+
+
+
+        <strong> @Model.successMessage</strong>
+
+
+        <div class="row mb-3">
+            <div class="offeset-sm-3 d-grid">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+
+            <div class="col-sm-3 d-grid">
+                <a class="btn btn-outline-primary" href="/" role="button">Cancel</a>
+            </div>
+        </div>
+
+
+
+
+        <h3> Cart </h3>
+        <table border="1">
+
+            <tr>
+
+                <td>ItemCode</td>
+                <td>Description</td>
+                <td>UnitPrice</td>
+                <td>Quantity</td>
+                <td>Total</td>
+
+
+            </tr>
+
+
+
+            @foreach (var i in Model.addtocart)
+            {
+
+                <tr>
+                    <td>@i.ItemCode </td>
+                    <td>@i.Description</td>
+                    <td>@i.UnitPrice </td>
+                    <td>@i.Quantity</td>
+                    <td>@i.ItemTotal</td>
+
+                </tr>
+            }
+
+        </table>
+
+    </form>
+
+</body>
+</html>

@@ -1,0 +1,101 @@
+﻿@page
+@model FinalProject.Pages.UpdateCustomerModel
+@{
+}
+
+
+
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8" />
+<title> Update Customer </title>
+
+
+
+
+<body>
+
+    <h2>Update Customer </h2>
+
+
+    <strong>@Model.errorMessage</strong>
+
+
+    <form name="AddItem" method="POST">
+        <div class=" row mb-3">
+            <lablel class="col-sm-3 col-form-label">CustomerID</lablel>
+            <div class="col-sm-6">
+                <input asp-for="CustomerID" type="text" class="form-control" id="CustomerID" name="CustomerID" value="@Model.customer.CustomerID" />
+                <span asp-validation-for="CustomerID"></span>
+
+            </div>
+        </div>
+
+        <div class=" row mb-3">
+            <lablel class="col-sm-3 col-form-label">CustomerName</lablel>
+            <div class="col-sm-6">
+                <input asp-for="CustomerName" type="text" class="form-control" id="CustomerName" name="CustomerName" value="@Model.customer.CustomerName" />
+                <span asp-validation-for="CustomerName"></span>
+
+            </div>
+        </div>
+
+
+
+        <div class=" row mb-3">
+            <lablel class="col-sm-3 col-form-label">Addresses</lablel>
+            <div class="col-sm-6">
+                <input asp-for="Addresses" type="text" class="form-control" id="Addresses" name="Addresses" value="@Model.customer.Addresses " />
+                <span asp-validation-for="Addresses"></span>
+            </div>
+        </div>
+
+
+        <div class=" row mb-3">
+            <lablel class="col-sm-3 col-form-label">City</lablel>
+            <div class="col-sm-6">
+                <input asp-for="City" type="text" class="form-control" id="City" name="City" value="@Model.customer.City " />
+                <span asp-validation-for="City"></span>
+            </div>
+        </div>
+
+        <div class=" row mb-3">
+            <lablel class="col-sm-3 col-form-label">Province</lablel>
+            <div class="col-sm-6">
+                <input asp-for="Province" type="text" class="form-control" id="Province" name="Province" value="@Model.customer.Province " />
+                <span asp-validation-for="Province"></span>
+            </div>
+        </div>
+
+        <div class=" row mb-3">
+            <lablel class="col-sm-3 col-form-label">PostalCode</lablel>
+            <div class="col-sm-6">
+                <input asp-for="PostalCode" type="text" class="form-control" id="PostalCode" name="PostalCode" value="@Model.customer.PostalCode " />
+                <span asp-validation-for="PostalCode"></span>
+            </div>
+        </div>
+
+
+
+
+
+
+
+        <strong> @Model.successMessage</strong>
+
+
+        <div class="row mb-3">
+            <div class="offeset-sm-3 d-grid">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+
+            <div class="col-sm-3 d-grid">
+                <a class="btn btn-outline-primary" href="/" role="button">Cancel</a>
+            </div>
+        </div>
+
+
+    </form>
+
+</body>
+</html>

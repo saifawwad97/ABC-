@@ -1,0 +1,54 @@
+﻿@page
+@model FinalProject.Pages.DeleteCustomerModel
+@{
+}
+
+
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8" />
+<title> DeleteCustomer </title>
+
+
+
+
+<body>
+    <h2>DeleteCustomer</h2>
+
+
+    <strong>@Model.errorMessage</strong>
+
+
+    <form name="AddItem" method="POST">
+        <div class=" row mb-3">
+            <lablel class="col-sm-3 col-form-label">CustomerID</lablel>
+            <div class="col-sm-6">
+                <input asp-for="CustomerID" type="text" class="form-control" id="CustomerID" name="CustomerID" value="@Model.customer.CustomerID" />
+                <span asp-validation-for="CustomerID"></span>
+
+            </div>
+        </div>
+
+   
+
+
+
+
+        <strong> @Model.successMessage</strong>
+
+
+        <div class="row mb-3">
+            <div class="offeset-sm-3 d-grid">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+
+            <div class="col-sm-3 d-grid">
+                <a class="btn btn-outline-primary" href="/" role="button">Cancel</a>
+            </div>
+        </div>
+
+
+    </form>
+
+</body>
+</html>
